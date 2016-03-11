@@ -62761,6 +62761,73 @@ module.exports = angular;
 })();
 },{"./AppCtrl":17}],19:[function(require,module,exports){
 (function() {
+    angular.module('mcms.Components')
+        .directive('footerComponent', footerComponent);
+
+    footerComponent.$inject = [];
+    footerontroller.$inject = [];
+
+    function footerComponent(){
+
+        return {
+            require : 'footerComponent',
+            templateUrl: "app/templates/Components/footer.component.html",
+            controller: footerontroller,
+            controllerAs : 'VM',
+            scope: {},
+            restrict : 'E',
+            link : function(scope, element, attrs, controllers){
+            }
+        };
+    }
+
+    function footerontroller(){
+        var vm = this;
+
+
+    }
+})();
+
+},{}],20:[function(require,module,exports){
+(function() {
+    angular.module('mcms.Components')
+        .directive('headerComponent', headerComponent);
+
+    headerComponent.$inject = [];
+    headerComponentController.$inject = [];
+
+    function headerComponent(){
+
+        return {
+            require : 'headerComponent',
+            templateUrl: "app/templates/Components/header.component.html",
+            controller: headerComponentController,
+            controllerAs : 'VM',
+            scope: {},
+            restrict : 'E',
+            link : function(scope, element, attrs, controllers){
+            }
+        };
+    }
+
+    function headerComponentController(){
+        var vm = this;
+
+
+    }
+})();
+
+},{}],21:[function(require,module,exports){
+(function() {
+    'use strict';
+
+    angular.module('mcms.Components', []);
+
+    require('./header');
+    require('./footer');
+})();
+},{"./footer":19,"./header":20}],22:[function(require,module,exports){
+(function() {
     'use strict';
 
     angular.module('mcms.Product')
@@ -62835,7 +62902,7 @@ module.exports = angular;
     }
 
 })();
-},{}],20:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62847,7 +62914,7 @@ module.exports = angular;
     }
 
 })();
-},{}],21:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62857,7 +62924,7 @@ module.exports = angular;
     require('./AddProductController');
 
 })();
-},{"./AddProductController":19,"./ProductController":20}],22:[function(require,module,exports){
+},{"./AddProductController":22,"./ProductController":23}],25:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62881,7 +62948,7 @@ module.exports = angular;
     require('./users');
     require('./products');
 })();
-},{"./products":23,"./users":24}],23:[function(require,module,exports){
+},{"./products":26,"./users":27}],26:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62907,7 +62974,7 @@ module.exports = angular;
     }
 
 })();
-},{}],24:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62928,7 +62995,7 @@ module.exports = angular;
     }
 
 })();
-},{}],25:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62940,7 +63007,7 @@ module.exports = angular;
     }
 
 })();
-},{}],26:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62949,7 +63016,7 @@ module.exports = angular;
     require('./UserController');
 
 })();
-},{"./UserController":25}],27:[function(require,module,exports){
+},{"./UserController":28}],30:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62963,7 +63030,8 @@ module.exports = angular;
         'mcms.Base',
         'mcms.Route',
         'mcms.User',
-        'mcms.Product'
+        'mcms.Product',
+        'mcms.Components'
     ])
         .config(config);
 
@@ -62981,8 +63049,9 @@ module.exports = angular;
     require('./Route');
     require('./User');
     require('./Product');
+    require('./Components');
 })();
-},{"./Base":18,"./Product":21,"./Route":22,"./User":26}],28:[function(require,module,exports){
+},{"./Base":18,"./Components":21,"./Product":24,"./Route":25,"./User":29}],31:[function(require,module,exports){
 require('angular');
 require('angular-route');
 require('angular-sanitize');
@@ -62992,4 +63061,4 @@ require('angular-animate');
 require('angular-aria');
 require('angular-material');
 require('./app');
-},{"./app":27,"angular":16,"angular-animate":2,"angular-aria":4,"angular-material":6,"angular-messages":8,"angular-resource":10,"angular-route":12,"angular-sanitize":14}]},{},[28]);
+},{"./app":30,"angular":16,"angular-animate":2,"angular-aria":4,"angular-material":6,"angular-messages":8,"angular-resource":10,"angular-route":12,"angular-sanitize":14}]},{},[31]);

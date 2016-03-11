@@ -11,7 +11,8 @@
         'mcms.Base',
         'mcms.Route',
         'mcms.User',
-        'mcms.Product'
+        'mcms.Product',
+        'mcms.Components'
     ])
         .config(config);
 
@@ -29,4 +30,5 @@
     require('./Route');
     require('./User');
     require('./Product');
+    require('./Components');
 })();
