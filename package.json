@@ -1,0 +1,32 @@
+{
+  "name": "angular-material-playground",
+  "version": "0.0.1",
+  "description": "A playground for angular material",
+  "main": "index.js",
+  "keywords": [
+  ],
+  "author": "Michael Bouclas <mbouclas@gmail.com> (http://net-tomorrow.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-material": "^1.0.6",
+    "angular-messages": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-toasty": "^1.0.5"
+  },
+  "scripts": {
+    "watch": "watchify ./public/app/index.js -o ./public/app.js -v",
+    "minify-app": "uglifyjs ./public/app.js --compress --mangle -o ./public/app.min.js",
+    "serve": "http-server -a localhost -p 8000 -c-1 -d public"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/mbouclas/angular-material-playground",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbouclas/angular-material-playground.git"
+  }
+}
