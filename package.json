@@ -21,7 +21,8 @@
   "scripts": {
     "watch": "watchify ./public/app/index.js -o ./public/app.js -v",
     "minify-app": "uglifyjs ./public/app.js --compress --mangle -o ./public/app.min.js",
-    "serve": "http-server -a localhost -p 8000 -c-1 -d public"
+    "serve": "http-server -a localhost -p 8000 -c-1 -d public",
+    "start": "concurrent \"npm run watch\" \"npm run serve\""
   },
   "devDependencies": {},
   "homepage": "https://github.com/mbouclas/angular-material-playground",
