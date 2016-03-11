@@ -19,4 +19,5 @@
     }
 
     require('./users');
+    require('./products');
 })();

@@ -10,7 +10,8 @@
         'ngAria',
         'mcms.Base',
         'mcms.Route',
-        'mcms.User'
+        'mcms.User',
+        'mcms.Product'
     ])
         .config(config);
 
@@ -24,7 +25,8 @@
             .accentPalette('red');
     }
 
-    require('./Base/index');
-    require('./Route/index');
-    require('./User/index');
+    require('./Base');
+    require('./Route');
+    require('./User');
+    require('./Product');
 })();
