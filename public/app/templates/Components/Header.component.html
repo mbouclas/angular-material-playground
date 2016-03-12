@@ -1,1 +1,356 @@
-<nav>Header</nav>
+   <md-toolbar ng-show="!showSearch">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+          <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+
+        <h1>Add New Product</h1>
+
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Search" ng-click="showSearch = !showSearch">
+          <md-icon md-font-icon="fa-search" class="fa fa-lg" ng-class="it.size"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+          <md-icon md-font-icon="fa-bell-o" class="fa fa-lg"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-toolbar class="md-hue-1" ng-show="showSearch">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Back">
+          <md-icon md-font-icon="fa-arrow-left" class="fa  fa-lg"></md-icon>
+        </md-button>
+        <h3 flex="10">
+          Back
+        </h3>
+
+        <md-input-container md-theme="input" flex>
+          <label>&nbsp;</label>
+          <input ng-model="search.who" placeholder="enter search">
+        </md-input-container>
+        <md-button  class="md-icon-button" aria-label="Search" ng-click="showSearch = !showSearch">
+          <md-icon md-font-icon="fa-search" class="fa fa-lg"></md-icon>
+        </md-button>
+        <md-button  class="md-icon-button" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+          <md-icon md-font-icon="fa-bell-o" class="fa fa-lg"></md-icon>
+        </md-button>
+      </div>
+     
+    </md-toolbar>
+
+
+
+<!--<md-toolbar class="md-accent">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+        <h2>
+        	Add New Product
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon md-font-icon="fa-gear" class="fa fa-2x "></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="User">
+          <md-icon md-font-icon="fa-user" class="fa fa-2x "></md-icon>
+        </md-button>
+      </div>
+</md-toolbar>-->
+
+ <!--   <md-toolbar class="md-menu-toolbar">
+    <div layout="row">
+     <md-toolbar-filler layout layout-align="center center">
+        <md-icon md-font-icon="fa-gear" class="fa md-primary md-hue-2 is-animating"></md-icon>
+      </md-toolbar-filler>
+      <div>
+        <h2 class="md-toolbar-tools">Admin Panel</h2>
+        <md-menu-bar>
+          <md-menu>
+            <button ng-click="$mdOpenMenu()">
+              eShop (default)
+            </button>
+            <md-menu-content>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('share', $event)">
+                  Share...
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">New</md-button>
+                  <md-menu-content>
+                    <md-menu-item><md-button ng-click="VM.sampleAction('New Document', $event)">Document</md-button></md-menu-item>
+                    <md-menu-item><md-button ng-click="VM.sampleAction('New Spreadsheet', $event)">Spreadsheet</md-button></md-menu-item>
+                    <md-menu-item><md-button ng-click="VM.sampleAction('New Presentation', $event)">Presentation</md-button></md-menu-item>
+                    <md-menu-item><md-button ng-click="VM.sampleAction('New Form', $event)">Form</md-button></md-menu-item>
+                    <md-menu-item><md-button ng-click="VM.sampleAction('New Drawing', $event)">Drawing</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('Open', $event)">
+                  Open...
+                  <span class="md-alt-text"> {{ 'M-O' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button disabled="disabled" ng-click="VM.sampleAction('Rename', $event)">
+                  Rename
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('Print', $event)">
+                  Print
+                  <span class="md-alt-text">{{ 'M-P' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+          <md-menu>
+            <button ng-click="$mdOpenMenu()">
+              Edit
+            </button>
+            <md-menu-content>
+              <md-menu-item class="md-indent">
+                <md-icon md-svg-icon="undo"></md-icon>
+                <md-button ng-click="VM.sampleAction('undo', $event)">
+                  Undo
+                  <span class="md-alt-text">{{ 'M-Z' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item class="md-indent">
+                <md-icon md-svg-icon="redo"></md-icon>
+                <md-button ng-click="VM.sampleAction('redo', $event)">
+                  Redo
+                  <span class="md-alt-text">{{ 'M-Y' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item class="md-indent">
+                <md-icon md-svg-icon="content-cut"></md-icon>
+                <md-button ng-click="VM.sampleAction('cut', $event)">
+                  Cut
+                  <span class="md-alt-text">{{ 'M-X' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item class="md-indent">
+                <md-icon md-svg-icon="content-copy"></md-icon>
+                <md-button ng-click="VM.sampleAction('copy', $event)">
+                  Copy
+                  <span class="md-alt-text">{{ 'M-C' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item class="md-indent">
+                <md-icon md-svg-icon="content-paste"></md-icon>
+                <md-button ng-click="VM.sampleAction('paste', $event)">
+                  Paste
+                  <span class="md-alt-text">{{ 'M-P' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item class="md-indent">
+                <md-button ng-click="VM.sampleAction('Find and replace', $event)">
+                  Find and replace...
+                  <span class="md-alt-text">{{ 'M-S-H' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+          <md-menu>
+            <button ng-click="$mdOpenMenu()">
+              View
+            </button>
+            <md-menu-content>
+              <md-menu-item type="checkbox" ng-model="VM.settings.printLayout">Print layout</md-menu-item>
+              <md-menu-item class="md-indent">
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">Mode</md-button>
+                  <md-menu-content width="3">
+                    <md-menu-item type="radio" ng-model="VM.settings.presentationMode" value="'presentation'">Presentation</md-menu-item>
+                    <md-menu-item type="radio" ng-model="VM.settings.presentationMode" value="'edit'">Edit</md-menu-item>
+                    <md-menu-item type="radio" ng-model="VM.settings.presentationMode" value="'modifiable'">Modifiable</md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item type="checkbox" ng-model="VM.settings.showRuler">Show ruler</md-menu-item>
+              <md-menu-item type="checkbox" ng-model="VM.settings.showEquationToolbar">Show equation toolbar</md-menu-item>
+              <md-menu-item type="checkbox" ng-model="VM.settings.showSpellingSuggestions">Show spelling suggestions</md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item type="checkbox" ng-model="VM.settings.compactControls">Compact controls</md-menu-item>
+              <md-menu-item type="checkbox" ng-model="VM.settings.fullScreen">Full screen</md-menu-item>
+            </md-menu-content>
+          </md-menu>
+          <md-menu>
+            <button ng-click="$mdOpenMenu()">
+              Format
+            </button>
+            <md-menu-content>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('bold', $event)">
+                  Bold
+                  <span class="md-alt-text"> {{ 'M-B' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('italic', $event)">
+                  Italic
+                  <span class="md-alt-text">{{ 'M-I' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('underline', $event)">
+                  Underline
+                  <span class="md-alt-text">{{ 'M-U' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('strikethrough', $event)">
+                  Strikethrough
+                  <span class="md-alt-text">{{ 'A-S-5' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('superscript', $event)">
+                  Superscript
+                  <span class="md-alt-text">{{ 'M-.' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="VM.sampleAction('subscript', $event)">
+                  Subscript
+                  <span class="md-alt-text">{{ 'M-,' | keyboardShortcut }}</span>
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item><md-button ng-click="VM.toggleSetting('clearFormatting')">Clear Formatting</md-button></md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </md-menu-bar>
+      </div>
+    </div>
+  </md-toolbar>-->
+<!--<md-toolbar layout="row">
+     <md-toolbar-filler layout layout-align="center center">
+        <md-icon md-font-icon="fa-gear" class="fa md-primary md-hue-2 is-animating"></md-icon>
+      </md-toolbar-filler>
+
+      <md-tabs md-dynamic-height >
+      <md-tab label="e Shop">
+        <md-content>
+          <p>Products etc</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="web Site">
+        <md-content>
+          <p>Cms etc</p>
+       </md-content>
+      </md-tab>
+      <md-tab label="else ">
+        <md-content>
+          <p>add here</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+</md-toolbar>-->
+
+<!--
+
+  <md-toolbar layout="row" layout-align="center center ">
+  	<div>
+  	     <md-toolbar-filler layout layout-align="center center">
+        <md-icon md-font-icon="fa-tachometer" class="fa md-primary md-hue-2"></md-icon>
+      </md-toolbar-filler>
+    </div>
+    <div layout="column" flex>
+        <div flex>Welcome
+
+
+
+        </div>
+<div flex>
+        <md-tabs md-selected="currentTab" class=" md-hue-2" md-dynamic-height>
+<md-tab label="e Shop">
+        <md-content class="md-primary">
+          <md-menu-bar>
+          <md-menu>
+            <button ng-click="$mdOpenMenu()">
+             Categories &amp; Products
+            </button>
+            <md-menu-content>
+			  <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">Categories</md-button>
+                  <md-menu-content>
+                    <md-menu-item><md-button>Categories <span class="md-alt-text">(add-edit)</span></md-button></md-menu-item>
+                    <md-menu-item><md-button>Featured Categories <span class="md-alt-text">(edit-select)</span></md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>
+
+              <md-menu-divider></md-menu-divider>
+
+ 			  <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">Products</md-button>
+                  <md-menu-content>
+                    <md-menu-item><md-button>All Products <span class="md-alt-text">(list)</span></md-button></md-menu-item>
+                    <md-menu-item><md-button>Featured Products <span class="md-alt-text">(edit-select)</span></md-button> </md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">Advanced</md-button>
+                  <md-menu-content>
+                    <md-menu-item><md-button>Features</md-button></md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item><md-button>Filters</md-button></md-menu-item>
+                    <md-menu-item><md-button>Filter Groupings</md-button></md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item><md-button>Dynamic Tables</md-button></md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item><md-button>Global Options</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+          <md-menu>
+            <button class="md-primary ">
+             Sales & Orders
+            </button>
+          </md-menu>
+          <md-menu>
+            <button>
+             Discounts &amp; Promotions
+            </button>
+          </md-menu>
+          <md-menu>
+            <button class="is-animate">
+             Users &amp; Customers
+            </button>
+          </md-menu>
+          </md-menu-bar>
+        </md-content>
+      </md-tab>
+      <md-tab label="web Site">
+        <md-content>
+...       </md-content>
+      </md-tab>
+      <md-tab label="else ">
+        <md-content>
+          ...
+        </md-content>
+      </md-tab>
+        </md-tabs>
+        </div>
+    </div>
+</md-toolbar>-->
+
+
+

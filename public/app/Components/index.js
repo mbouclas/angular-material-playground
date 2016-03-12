@@ -5,4 +5,5 @@
 
     require('./header');
     require('./footer');
+    require('./sidenav');
 })();

@@ -1,75 +1,89 @@
-<h1>Product</h1>
 
-<md-content class="md-padding" layout-xs="column" layout="row">
-    <div flex-xs flex-gt-xs="50" layout="column">
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Card with image</span>
-                    <span class="md-subhead">Large</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-lg card-media"></div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>
-            </md-card-actions>
-        </md-card>
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Card with  image</span>
-                    <span class="md-subhead">Extra Large</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout="row" layout-align="space-between">
-                <div class="md-media-xl card-media"></div>
-                <md-card-actions layout="column">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Settings">
-                        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card-content>
-        </md-card>
-    </div>
-    <div flex-xs flex-gt-xs="50" layout="column">
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Card with image</span>
-                    <span class="md-subhead">Small</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-sm card-media"></div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>
-            </md-card-actions>
-        </md-card>
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Card with image</span>
-                    <span class="md-subhead">Medium</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-md card-media"></div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>
-            </md-card-actions>
-        </md-card>
-    </div>
-</md-content>
+<!--
+
+
+<div layout>
+  <div flex>1</div>
+  <div flex>112112 2131231 23123 122321</div>
+  <div flex>1</div>
+  <div flex>112112 21312312 31231 22321</div>
+  <div flex>1</div>
+  <div flex>1121122 1312312 312312 2321</div>
+  <div flex>1</div>
+  <div flex>1121122 13123123 1231 22321</div>
+  <div flex>1</div>
+  <div flex>112112 2131231 23123 122321</div>
+  <div flex>1</div>
+  <div flex>112112 21312312 31231 22321</div>
+  <div flex>1</div>
+  <div flex>1121122 1312312 312312 2321</div>
+  <div flex>1</div>
+  <div flex>1121122 13123123 1231 22321</div>
+</div>
+<hr/>
+
+
+<div layout >
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+</div>
+<hr/>
+<div layout=column>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+<span>1</span>
+</div>
+
+<hr/>
+<md-menu-bar>
+<md-menu-item>
+
+ <md-menu>
+   <button ng-click="$mdOpenMenu()">
+     Sample Menu
+   </button>
+   <md-menu-content>
+     <md-menu-item type="checkbox" ng-model="settings.allowChanges">Allow changes</md-menu-item>
+     <md-menu-divider></md-menu-divider>
+     <md-menu-item type="radio" ng-model="settings.mode" ng-value="1">Mode 1</md-menu-item>
+     <md-menu-item type="radio" ng-model="settings.mode" ng-value="1">Mode 2</md-menu-item>
+     <md-menu-item type="radio" ng-model="settings.mode" ng-value="1">Mode 3</md-menu-item>
+   </md-menu-content>
+ </md-menu>
+ </md-menu-item>
+ <md-menu-item>
+  <md-menu>
+    <button ng-click="$mdOpenMenu()">New</button>
+    <md-menu-content>
+      <md-menu-item><md-button ng-click="ctrl.sampleAction('New Document', $event)">Document</md-button></md-menu-item>
+      <md-menu-item><md-button ng-click="ctrl.sampleAction('New Spreadsheet', $event)">Spreadsheet</md-button></md-menu-item>
+      <md-menu-item><md-button ng-click="ctrl.sampleAction('New Presentation', $event)">Presentation</md-button></md-menu-item>
+      <md-menu-item><md-button ng-click="ctrl.sampleAction('New Form', $event)">Form</md-button></md-menu-item>
+      <md-menu-item><md-button ng-click="ctrl.sampleAction('New Drawing', $event)">Drawing</md-button></md-menu-item>
+    </md-menu-content>
+  </md-menu></md-menu-item>
+</md-menu-bar>
+-->

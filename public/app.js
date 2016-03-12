@@ -62810,10 +62810,20 @@ module.exports = angular;
         };
     }
 
-    function headerComponentController(){
-        var vm = this;
-
-
+    headerComponentController.$inject=['$scope', '$mdSidenav','$mdBottomSheet'];
+    function headerComponentController($scope,$mdSidenav,$mdBottomSheet){
+        $scope.toggleSidenav = function(menuId) {
+            $mdSidenav(menuId).toggle();
+          };
+         $scope.showListBottomSheet = function($event) {
+            $scope.alert = '';
+            $mdBottomSheet.show({
+              template: '<md-bottom-sheet class="md-list md-has-header"> <md-subheader>Settings</md-subheader> </md-bottom-sheet>',
+              targetEvent: $event
+            }).then(function(clickedItem) {
+              $scope.alert = clickedItem.name + ' clicked!';
+            });
+          };
     }
 })();
 
@@ -62825,8 +62835,70 @@ module.exports = angular;
 
     require('./header');
     require('./footer');
+    require('./sidenav');
 })();
-},{"./footer":19,"./header":20}],22:[function(require,module,exports){
+},{"./footer":19,"./header":20,"./sidenav":22}],22:[function(require,module,exports){
+(function() {
+    angular.module('mcms.Components')
+        .directive('sidenavComponent', sidenavComponent);
+
+    sidenavComponent.$inject = [];
+    sidenavController.$inject = [];
+
+    function sidenavComponent(){
+
+        return {
+            require : 'sidenavComponent',
+            templateUrl: "app/templates/Components/sidenav.component.html",
+            controller: sidenavController,
+            controllerAs : 'VM',
+            scope: {},
+            restrict : 'E',
+            link : function(scope, element, attrs, controllers){
+            }
+        };
+    }
+
+    sidenavController.$inject=['$scope', '$mdSidenav'];
+
+    function sidenavController($scope, $mdSidenav) {
+          $scope.toggleSidenav = function(menuId) {
+            $mdSidenav(menuId).toggle();
+          };
+            $scope.menu = [
+            {
+              link : '',
+              title: 'Dashboard',
+              icon: 'fa-tachometer'
+            },
+            {
+              link : '',
+              title: 'Friends',
+              icon: 'group'
+            },
+            {
+              link : '',
+              title: 'Messages',
+              icon: 'message'
+            }
+          ];
+          $scope.admin = [
+            {
+              link : '',
+              title: 'Trash',
+              icon: 'delete'
+            },
+            {
+              link : 'showListBottomSheet($event)',
+              title: 'Settings',
+              icon: 'settings'
+            }
+          ];
+
+    }
+})();
+
+},{}],23:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62902,7 +62974,7 @@ module.exports = angular;
     }
 
 })();
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62914,7 +62986,7 @@ module.exports = angular;
     }
 
 })();
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62924,7 +62996,7 @@ module.exports = angular;
     require('./AddProductController');
 
 })();
-},{"./AddProductController":22,"./ProductController":23}],25:[function(require,module,exports){
+},{"./AddProductController":23,"./ProductController":24}],26:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62948,7 +63020,7 @@ module.exports = angular;
     require('./users');
     require('./products');
 })();
-},{"./products":26,"./users":27}],26:[function(require,module,exports){
+},{"./products":27,"./users":28}],27:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62974,7 +63046,7 @@ module.exports = angular;
     }
 
 })();
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -62995,7 +63067,7 @@ module.exports = angular;
     }
 
 })();
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -63007,7 +63079,7 @@ module.exports = angular;
     }
 
 })();
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -63016,7 +63088,7 @@ module.exports = angular;
     require('./UserController');
 
 })();
-},{"./UserController":28}],30:[function(require,module,exports){
+},{"./UserController":29}],31:[function(require,module,exports){
 (function() {
     'use strict';
 
@@ -63033,17 +63105,32 @@ module.exports = angular;
         'mcms.Product',
         'mcms.Components'
     ])
-        .config(config);
+    
+    .config(config);
 
-    config.$inject = ['$compileProvider', '$locationProvider','$mdThemingProvider'];
+    config.$inject = ['$compileProvider', '$locationProvider','$mdThemingProvider', '$mdIconProvider'];
 
-    function config($compileProvider, $locationProvider,$mdThemingProvider){
+    function config($compileProvider, $locationProvider,$mdThemingProvider,$mdIconProvider){
+        var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
+                'contrastDefaultColor': 'light',
+                'contrastDarkColors': ['50'],
+                '50': 'ffffff'
+              });
+  $mdThemingProvider.definePalette('customBlue', customBlueMap);
+  $mdThemingProvider.theme('default')
+    .primaryPalette('customBlue', {
+      'default': '500',
+      'hue-1': '50'
+    })
+    .accentPalette('pink');
+  $mdThemingProvider.theme('input', 'default')
+        .primaryPalette('grey');
         $compileProvider.debugInfoEnabled(true);
         $locationProvider.html5Mode(false);
-        $mdThemingProvider.theme('default')
-            .primaryPalette('deep-orange')
-            .accentPalette('red');
-    }
+        $mdIconProvider
+               .defaultFontSet( 'fontawesome' )
+               .defaultIconSet('fonts/fontawesome-webfont.svg') ;      // Register a default set of SVG icons           
+        }
 
     require('./Base');
     require('./Route');
@@ -63051,7 +63138,7 @@ module.exports = angular;
     require('./Product');
     require('./Components');
 })();
-},{"./Base":18,"./Components":21,"./Product":24,"./Route":25,"./User":29}],31:[function(require,module,exports){
+},{"./Base":18,"./Components":21,"./Product":25,"./Route":26,"./User":30}],32:[function(require,module,exports){
 require('angular');
 require('angular-route');
 require('angular-sanitize');
@@ -63061,4 +63148,4 @@ require('angular-animate');
 require('angular-aria');
 require('angular-material');
 require('./app');
-},{"./app":30,"angular":16,"angular-animate":2,"angular-aria":4,"angular-material":6,"angular-messages":8,"angular-resource":10,"angular-route":12,"angular-sanitize":14}]},{},[31]);
+},{"./app":31,"angular":16,"angular-animate":2,"angular-aria":4,"angular-material":6,"angular-messages":8,"angular-resource":10,"angular-route":12,"angular-sanitize":14}]},{},[32]);
