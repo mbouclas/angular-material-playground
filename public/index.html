@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Playground</title>
     <link href="css/angular-material.css" type="text/css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
+ 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+
     <link href="css/extra.css" type="text/css" rel="stylesheet">
 
 </head>
@@ -26,17 +29,11 @@
 		<header-component></header-component>
 
 
-		<md-content flex md-scroll-y class="md-default-theme">
-			<div ng-view=""></div>
-			<footer-component></footer-component>
-        	<div flex=""></div>
+		<md-content layout="row" layout-padding flex md-scroll-y class="md-default-theme">
+			<div ng-view="" flex></div>
    		 </md-content>
+		<footer-component></footer-component>
 	</div>
-
-		     <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
-		        <ng-md-icon icon="add"></ng-md-icon>
-		      </md-button>
-
 
 
 

@@ -36,9 +36,6 @@
         .primaryPalette('grey');
         $compileProvider.debugInfoEnabled(true);
         $locationProvider.html5Mode(false);
-        $mdIconProvider
-               .defaultFontSet( 'fontawesome' )
-               .defaultIconSet('fonts/fontawesome-webfont.svg') ;      // Register a default set of SVG icons           
         }
 
     require('./Base');

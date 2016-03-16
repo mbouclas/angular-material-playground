@@ -1,28 +1,108 @@
 
+
+
+<h3 class="md-headline">Product Catalog</h3>
+
+<div flex layout layout-align="center" layout-padding>
+  <md-content flex-xs="100" flex-sm="100" flex-gt-sm="90" flex-gt-md="90" flex-gt-lg="80" class="md-whiteframe-z2">
 <!--
+<md-list flex>
+  <md-subheader class="md-no-sticky"><span ng-transclude="Header"></span></md-subheader>
+  <md-list-item class="md-3-line noright" ng-repeat="item in VM.Products">
+    <div class="md-list-item-text" layout="column">
+      <h3>#{{ item.sku }} {{ item.title }}</h3>
+      <p>{{ item.updated_at | moment }}</p>
+      <md-chips readonly="true" ng-model="item.categories">
+        <md-chip-template ng-click="VM.filter({categoryId : $chip.id})">{{ $chip.category }}</md-chip-template>
+      </md-chips>
+    </div>
+    <div flex></div>
+    <md-checkbox  ng-model="topping.wanted"></md-checkbox>
+    <md-icon class="material-icons" ng-click="VM.quickEdit($event,item)">edit
+      <md-tooltip md-direction="top">
+        Quick Edit
+      </md-tooltip>
+    </md-icon>
+    <md-icon class="material-icons" go-to="{{ 'product' | url:{id : item.id} }}">link
+      <md-tooltip md-direction="top">
+        Edit
+      </md-tooltip>
+    </md-icon>
+    <md-divider ng-if="!$last"></md-divider>
+
+  </md-list-item>
+</md-list>
+-->
+<md-list flex>
+  <md-list-item class="md-3-line " ng-click="1">
+   <md-checkbox  class="md-primary" ng-click="2"></md-checkbox>
+    <div class="md-list-item-text" flex layout="column" ng-click="1">
+      <p><span class="md-caption">SKU: sku-sku</span></p>
+      <h3> title-title-title- title-title-  </h3>
+    </div>
+    
+  <md-icon class="material-icons md-18 ">edit
+      <md-tooltip md-direction="top">
+        Quick Edit
+      </md-tooltip>
+    </md-icon>      
+
+    <md-divider ></md-divider>
+
+  </md-list-item>
+
+</md-list>
 
 
-<div layout>
-  <div flex>1</div>
-  <div flex>112112 2131231 23123 122321</div>
-  <div flex>1</div>
-  <div flex>112112 21312312 31231 22321</div>
-  <div flex>1</div>
-  <div flex>1121122 1312312 312312 2321</div>
-  <div flex>1</div>
-  <div flex>1121122 13123123 1231 22321</div>
-  <div flex>1</div>
-  <div flex>112112 2131231 23123 122321</div>
-  <div flex>1</div>
-  <div flex>112112 21312312 31231 22321</div>
-  <div flex>1</div>
-  <div flex>1121122 1312312 312312 2321</div>
-  <div flex>1</div>
-  <div flex>1121122 13123123 1231 22321</div>
+<!--
+<div layout=row>
+  <div flex="5"><md-checkbox ng-click="2"></md-checkbox></div>
+  <div flex="15">sku-sku  </div>
+  <div flex>
+    title-title-title- title-title- 
+      <md-icon class="material-icons md-18 ">edit
+        <md-tooltip md-direction="top">
+          Quick Edit
+        </md-tooltip>
+      </md-icon>
+    <br/>
+    <span class="md-caption">Last Updates: date @ time</</span>
+
+ </div>
+  <div flex="30">
+    <md-chips>
+      <md-chip><em>Hockey</em></md-chip>
+      <md-chip>Lacrosse</md-chip>
+      <md-chip>Baseball</md-chip>
+      <md-chip><em>Hockey</em></md-chip>
+      <md-chip>Lacrosse</md-chip>
+      <md-chip>Baseball</md-chip>
+      <md-chip><em>Hockey</em></md-chip>
+      <md-chip>Lacrosse</md-chip>
+      <md-chip>Baseball</md-chip>
+      <md-chip><em>Hockey</em></md-chip>
+      <md-chip>Lacrosse</md-chip>
+      <md-chip>Baseball</md-chip>
+    </md-chips>
+  </div>
+  <div flex="5">action</div>
+  <div flex="5">
+    <md-switch ng-model="3" aria-label="Switch 1"></md-switch>
+  </div>
 </div>
-<hr/>
+
+-->
+
+</md-content>
 
 
+
+
+
+
+</div>
+
+<!--
 <div layout >
   <div>
     1
